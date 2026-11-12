@@ -1,0 +1,28 @@
+{
+  "name": "session-memory",
+  "displayName": "Session Memory",
+  "version": "0.1.0",
+  "description": "A summary of each Claude Code session, written at every compaction and session end, kept on a git branch that never merges, and handed to the next session.",
+  "author": {
+    "name": "Jim Stanton",
+    "url": "https://github.com/jstanton617"
+  },
+  "homepage": "https://github.com/jstanton617/claude-session-memory",
+  "repository": "https://github.com/jstanton617/claude-session-memory",
+  "license": "MIT",
+  "keywords": ["memory", "compaction", "handoff", "hooks", "summary"],
+  "userConfig": {
+    "push": {
+      "type": "boolean",
+      "title": "Push records to the remote",
+      "description": "Push each record to a memory branch on the repository's remote, so another machine or a cloud session can read it. Off, records stay in this clone, on refs/session-memory/memory. Anyone who can read the remote can read pushed records.",
+      "default": false
+    },
+    "issues": {
+      "type": "boolean",
+      "title": "File undecided items as GitHub issues",
+      "description": "File each record's undecided items as issues in the repository, with gh, ten at most per record. Off, they stay bullets in the record.",
+      "default": false
+    }
+  }
+}

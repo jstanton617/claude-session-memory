@@ -1,0 +1,15 @@
+{
+  "name": "jstanton617",
+  "description": "Claude Code plugins by Jim Stanton",
+  "owner": {
+    "name": "Jim Stanton",
+    "url": "https://github.com/jstanton617"
+  },
+  "plugins": [
+    {
+      "name": "session-memory",
+      "source": "./plugins/session-memory",
+      "description": "A summary of each session at every compaction and session end, kept on a git branch, and handed to the next session."
+    }
+  ]
+}
