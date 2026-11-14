@@ -744,8 +744,10 @@ def test_another_writers_rewrite_wins_over_a_copy_taken_for_a_hand_off(mem, monk
 def test_a_tailscale_key_and_an_aws_key_id_are_redacted_whole():
     """session memory: a Tailscale key loses its secret half too, and a temporary AWS key id goes"""
     mod = load()
-    text, hidden = mod.redact("tskey-auth-kAbCdEfGh1CNTRL-SeCrEtHaLf0123456789 and "
-                              "ASIAABCDEFGHIJKLMNOP")
+    # Both are made up, and assembled here so no secret scanner takes the source for a real key.
+    tailscale = "-".join(["tskey", "auth", "kAbCdEfGh1CNTRL", "SeCrEtHaLf0123456789"])
+    aws = "ASIA" + "ABCDEFGHIJKLMNOP"
+    text, hidden = mod.redact(f"{tailscale} and {aws}")
     assert hidden == 2 and "SeCrEtHaLf" not in text and "ASIAABCD" not in text, text
 
 
